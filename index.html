@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cipher of Shadows</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Unbounded:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Unbounded', sans-serif;
+            background: radial-gradient(circle at center, #1f1f1f, #0d0d0d);
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #111;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+            padding: 50px;
+            text-align: center;
+            max-width: 950px;
+            width: 100%;
+            border: 2px solid #444;
+        }
+
+        h1 {
+            font-family: 'Share Tech Mono', monospace;
+            color: #ffd54f;
+            margin-bottom: 30px;
+            font-size: 3em;
+            text-shadow: 0 0 8px #ffeb3b33;
+        }
+
+        p.intro {
+            color: #aaa;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .riddle-box {
+            background: #1b1b1b;
+            border: 1px solid #555;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .riddle-box p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        .riddle-box input {
+            margin-top: 15px;
+            padding: 12px 15px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1em;
+            border: none;
+            border-bottom: 2px solid #ffd54f;
+            background: transparent;
+            color: #ffd54f;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .riddle-box input:focus {
+            outline: none;
+            background-color: #222;
+            box-shadow: 0 0 10px #ffd54f55;
+        }
+
+        .submit-btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #ffd54f;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #fff176;
+        }
+
+        .result {
+            font-size: 1.5em;
+            margin-top: 30px;
+            font-weight: bold;
+            color: #76ff03;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Cipher of Shadows</h1>
+        <p class="intro">Only the clever may proceed. Five veiled riddles hold letters that forge the password — a word that heals.</p>
+
+        <div class="riddle-box">
+            <p><strong>1. The Silent Hunter</strong><br>
+            It sleeps by day in libraries of bark,<br>
+            Eyes like moons, it reigns after dark.</p>
+            <input type="text" placeholder="Answer...">
+        </div>
+
+        <div class="riddle-box">
+            <p><strong>2. The Ancient Pulse</strong><br>
+            It carries time upon its rings,<br>
+            Roots deep in silence, yet it sings.</p>
+            <input type="text" placeholder="Answer...">
+        </div>
+
+        <div class="riddle-box">
+            <p><strong>3. The Thief of Light</strong><br>
+            No door it enters, yet steals the scene,<br>
+            Where it goes, all turns unseen.</p>
+            <input type="text" placeholder="Answer...">
+        </div>
+
+        <div class="riddle-box">
+            <p><strong>4. The Breathless Dancer</strong><br>
+            It twists and sways but has no form,<br>
+            Born from heat, yet never warm.</p>
+            <input type="text" placeholder="Answer...">
+        </div>
+
+        <div class="riddle-box">
+            <p><strong>5. The Eternal Enigma</strong><br>
+            Always ahead, never behind,<br>
+            The future's secret in its bind.</p>
+            <input type="text" placeholder="Answer...">
+        </div>
+
+        <button class="submit-btn" onclick="revealPassword()">Decrypt the Cipher</button>
+        <div class="result" id="result"></div>
+    </div>
+
+	<script>
+function _0x5a06(_0x543ce4,_0x274dc7){const _0x28d3fc=_0x28d3();return _0x5a06=function(_0x5a0652,_0x2f432f){_0x5a0652=_0x5a0652-0x12f;let _0x322233=_0x28d3fc[_0x5a0652];return _0x322233;},_0x5a06(_0x543ce4,_0x274dc7);}function _0x28d3(){const _0x549813=['Please\x20answer\x20all\x20riddles!','988520uIUonu','3408CUKfXL','value','7782kiRxcz','revealPassword','41215HSEFJw','4119SKDXWg','d-q9-0-41-h7','innerText','indexOf','hs-qm-gv-6w-h7','✔️\x20Correct!\x20You’ve\x20unlocked\x20the\x20Cipher\x20with\x20','4940089uRvNdY','getElementById','7040480FUpcZc','result','488JJiYey','querySelectorAll','7399tzzgGT','split','toUpperCase','trim','length','32517IMwVAJ','2554gFInof'];_0x28d3=function(){return _0x549813;};return _0x28d3();}(function(_0x21c79f,_0x2c4ece){const _0xdc2827=_0x5a06,_0x5e4e44=_0x21c79f();while(!![]){try{const _0x33134a=parseInt(_0xdc2827(0x144))/0x1+parseInt(_0xdc2827(0x142))/0x2*(-parseInt(_0xdc2827(0x130))/0x3)+parseInt(_0xdc2827(0x13a))/0x4*(-parseInt(_0xdc2827(0x12f))/0x5)+parseInt(_0xdc2827(0x147))/0x6*(parseInt(_0xdc2827(0x13c))/0x7)+parseInt(_0xdc2827(0x145))/0x8*(parseInt(_0xdc2827(0x141))/0x9)+-parseInt(_0xdc2827(0x138))/0xa+parseInt(_0xdc2827(0x136))/0xb;if(_0x33134a===_0x2c4ece)break;else _0x5e4e44['push'](_0x5e4e44['shift']());}catch(_0x37c8d2){_0x5e4e44['push'](_0x5e4e44['shift']());}}}(_0x28d3,0xd7fbf),((()=>{const _0x505487=_0x5a06,_0x3786b7='ph0qg64mea1yl2fnxrv3szwjt5b8cuk9d7oi',_0x41df4b=_0x3786b7[_0x505487(0x140)];function _0x4d04ba(_0x1171a5,_0x2c2724){return(_0x1171a5<<_0x2c2724|_0x1171a5>>>0x8-_0x2c2724)&0xff;}function _0x54079a(_0x1215ed,_0xff0858){return(_0x1215ed>>>_0xff0858|_0x1215ed<<0x8-_0xff0858)&0xff;}function _0x52fc26(_0x16475b){const _0x34e77e=_0x505487;let _0x4fb211=0x0;for(let _0x49f5e0 of _0x16475b){_0x4fb211=_0x4fb211*_0x41df4b+_0x3786b7[_0x34e77e(0x133)](_0x49f5e0);}return _0x4fb211;}function _0xecce12(_0x344ff3,_0x261013){let _0x388793=_0x52fc26(_0x344ff3);return _0x388793=_0x388793^0x5a,_0x388793=_0x388793-_0x261013*0x7+0x100&0xff,_0x388793=_0x54079a(_0x388793,0x3),_0x388793=_0x388793^_0x261013*0xd,_0x388793;}function _0x2376b5(_0x93d80d){const _0x23ddb6=_0x505487,_0x362977=_0x93d80d[_0x23ddb6(0x13d)]('-');let _0x51d86d='';for(let _0x275db9=0x0;_0x275db9<_0x362977[_0x23ddb6(0x140)];_0x275db9++){_0x51d86d+=String['fromCharCode'](_0xecce12(_0x362977[_0x275db9],_0x275db9));}return _0x51d86d;}const _0x400b0e=_0x505487(0x134);window[_0x505487(0x148)]=function(){const _0x48c4f3=_0x505487,_0x407c10=document[_0x48c4f3(0x13b)]('input');let _0x41d30c='';for(let _0x21cb15=0x0;_0x21cb15<_0x407c10['length'];_0x21cb15++){const _0xea9fa8=_0x407c10[_0x21cb15][_0x48c4f3(0x146)][_0x48c4f3(0x13f)]();if(!_0xea9fa8){document[_0x48c4f3(0x137)]('result')['innerText']=_0x48c4f3(0x143);return;}_0x41d30c+=_0xea9fa8[0x0][_0x48c4f3(0x13e)]();}const _0x1fbd0d=_0x2376b5(_0x400b0e);_0x41d30c===_0x2376b5(_0x48c4f3(0x131))?document['getElementById'](_0x48c4f3(0x139))[_0x48c4f3(0x132)]=_0x48c4f3(0x135)+_0x1fbd0d+'.':document['getElementById'](_0x48c4f3(0x139))['innerText']='❌\x20Incorrect.\x20The\x20cipher\x20rejects\x20your\x20answer.';};})()));
+	</script>
+
+</body>
+</html>
