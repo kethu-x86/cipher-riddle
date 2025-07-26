@@ -3,152 +3,600 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cipher of Shadows</title>
+    <title>Home Energy Appraisal - Survey Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Unbounded:wght@400;700&display=swap');
-
         body {
-            font-family: 'Unbounded', sans-serif;
-            background: radial-gradient(circle at center, #1f1f1f, #0d0d0d);
-            color: #e0e0e0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
         }
-
-        .container {
-            background-color: #111;
-            border-radius: 20px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
-            padding: 50px;
-            text-align: center;
-            max-width: 950px;
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #374151;
+        }
+        .form-input, .form-select {
             width: 100%;
-            border: 2px solid #444;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            transition: border-color 0.2s;
         }
-
-        h1 {
-            font-family: 'Share Tech Mono', monospace;
-            color: #ffd54f;
-            margin-bottom: 30px;
-            font-size: 3em;
-            text-shadow: 0 0 8px #ffeb3b33;
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
         }
-
-        p.intro {
-            color: #aaa;
-            font-size: 1.2em;
-            margin-bottom: 40px;
+        .table-container {
+            overflow-x: auto;
         }
-
-        .riddle-box {
-            background: #1b1b1b;
-            border: 1px solid #555;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
             text-align: left;
         }
-
-        .riddle-box p {
-            font-size: 1.1em;
-            color: #e0e0e0;
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
         }
-
-        .riddle-box input {
-            margin-top: 15px;
-            padding: 12px 15px;
-            width: 100%;
-            max-width: 400px;
-            font-size: 1em;
-            border: none;
-            border-bottom: 2px solid #ffd54f;
-            background: transparent;
-            color: #ffd54f;
-            font-family: 'Share Tech Mono', monospace;
-        }
-
-        .riddle-box input:focus {
-            outline: none;
-            background-color: #222;
-            box-shadow: 0 0 10px #ffd54f55;
-        }
-
-        .submit-btn {
-            margin-top: 30px;
-            padding: 15px 30px;
-            background-color: #ffd54f;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.2em;
-            color: #000;
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
             cursor: pointer;
-            font-weight: bold;
+            transition: background-color 0.2s;
         }
-
-        .submit-btn:hover {
-            background-color: #fff176;
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
         }
-
-        .result {
-            font-size: 1.5em;
-            margin-top: 30px;
-            font-weight: bold;
-            color: #76ff03;
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        .validation-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+        }
+        .validation-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .validation-error {
+            background-color: #fee2e2;
+            color: #991b1b;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>The Cipher of Shadows</h1>
-        <p class="intro">Only the clever may proceed. Five veiled riddles hold letters that forge the password — a word that heals.</p>
+<body class="p-4 sm:p-8">
 
-        <div class="riddle-box">
-            <p><strong>1. The Silent Hunter</strong><br>
-            It sleeps by day in libraries of bark,<br>
-            Eyes like moons, it reigns after dark.</p>
-            <input type="text" placeholder="Answer...">
+    <div class="max-w-7xl mx-auto bg-white p-6 sm:p-10 rounded-xl shadow-lg">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-gray-800">Home Energy Appraisal</h1>
+            <p class="text-lg text-gray-600">National Service Scheme</p>
+        </header>
+
+        <!-- Appraiser Details -->
+        <section class="mb-8">
+            <h2 class="section-title">Appraiser Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="appraiserName" class="form-label">Name of the Appraiser</label>
+                    <input type="text" id="appraiserName" class="form-input">
+                </div>
+                <div>
+                    <label for="enrollmentId" class="form-label">NSS Enrollment ID/KTU Register Number</label>
+                    <input type="text" id="enrollmentId" class="form-input">
+                </div>
+                <div>
+                    <label for="nssUnitNo" class="form-label">NSS Unit No</label>
+                    <input type="text" id="nssUnitNo" class="form-input">
+                </div>
+                <div>
+                    <label for="collegeName" class="form-label">Name of the College</label>
+                    <input type="text" id="collegeName" class="form-input">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section I: Electricity Connection Details -->
+        <section class="mb-8">
+            <h2 class="section-title">I. Electricity Connection Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Fields from the form -->
+                <div><label for="consumerName" class="form-label">Name of the consumer</label><input type="text" id="consumerName" class="form-input"></div>
+                <div><label for="familyMembers" class="form-label">Number of family members</label><input type="number" id="familyMembers" class="form-input"></div>
+                <div><label for="consumerNumber" class="form-label">Consumer number (Unique ID)</label><input type="text" id="consumerNumber" class="form-input"></div>
+                <div><label for="tariffCategory" class="form-label">Tariff Category</label><input type="text" id="tariffCategory" class="form-input"></div>
+                <div><label for="electricalSection" class="form-label">Name of Electrical Section</label><input type="text" id="electricalSection" class="form-input"></div>
+                <div><label for="connectedLoad" class="form-label">Connected Load in watts</label><input type="number" id="connectedLoad" class="form-input"></div>
+                <div>
+                    <label for="connectionNature" class="form-label">Nature of connection</label>
+                    <select id="connectionNature" class="form-select"><option>Single Phase</option><option>Three Phase</option></select>
+                </div>
+                <div>
+                    <label for="houseType" class="form-label">House Building Type</label>
+                    <select id="houseType" class="form-select"><option>Concrete</option><option>Tiled Roof</option><option>Sheet Roof</option></select>
+                </div>
+                <div>
+                    <label class="form-label">Own building or rental?</label>
+                    <div class="flex items-center space-x-4 mt-2"><input type="radio" name="buildingOwnership" id="ownBuilding" value="own"><label for="ownBuilding">Own</label><input type="radio" name="buildingOwnership" id="rentalBuilding" value="rental"><label for="rentalBuilding">Rental</label></div>
+                </div>
+                <div><label for="numFloors" class="form-label">No of floors</label><input type="number" id="numFloors" class="form-input"></div>
+                <div><label for="buildingArea" class="form-label">Total Building area (m²)</label><input type="number" id="buildingArea" class="form-input"></div>
+                <div>
+                    <label for="earthingType" class="form-label">Type of Earthing</label>
+                    <select id="earthingType" class="form-select"><option>Plate Earthing</option><option>Pipe Earthing</option></select>
+                </div>
+                 <div>
+                    <label for="controlSystem" class="form-label">Control Systems</label>
+                    <select id="controlSystem" class="form-select"><option>ELCB</option><option>RCCB</option></select>
+                </div>
+                <div><label for="numMcbs" class="form-label">Number of MCBS</label><input type="number" id="numMcbs" class="form-input"></div>
+                <div>
+                    <label for="meterType" class="form-label">Type of Energy Meter</label>
+                    <select id="meterType" class="form-select"><option>Electromechanical</option><option>Digital</option><option>TOD</option></select>
+                </div>
+                <div>
+                    <label class="form-label">Solar plant installed?</label>
+                    <div class="flex items-center space-x-4 mt-2"><input type="radio" name="solarInstalled" id="solarYes" value="yes"><label for="solarYes">Yes</label><input type="radio" name="solarInstalled" id="solarNo" value="no"><label for="solarNo">No</label></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Other Sections -->
+        <div id="other-sections">
+            <!-- Solar Plant Details -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Solar Plant Details</h3>
+                <div class="table-container">
+                    <table class="min-w-full">
+                        <thead><tr><th>Sl.No</th><th>Type of Solar Plant</th><th>Installed Capacity (kWp)</th><th>Remarks</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Off grid</td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>2</td><td>On grid</td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>3</td><td>Hybrid</td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4">
+                    <label for="batteryDetails" class="form-label">Specify battery details for off-grid/hybrid plant</label>
+                    <textarea id="batteryDetails" class="form-input" rows="3"></textarea>
+                </div>
+            </section>
+
+            <!-- Fuel used for Cooking -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Fuel used for Cooking</h3>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Sl.No</th><th>Type of fuel</th><th>Fuel Consumption per month</th><th>Unit</th><th>Remarks</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Firewood</td><td><input type="number" class="form-input"></td><td>Kg</td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>2</td><td>LPG Cylinder</td><td><input type="number" class="form-input"></td><td>Cylinders</td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>3</td><td>Biogas</td><td><input type="number" class="form-input"></td><td>Hours</td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>4</td><td>Induction Cooker</td><td><input type="number" class="form-input"></td><td>Hours</td><td><input type="text" class="form-input"></td></tr>
+                             <tr><td>5</td><td>Others</td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input" placeholder="Specify unit"></td><td><input type="text" class="form-input"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Water Usage Details -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Water Usage Details</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div><label class="form-label">Source of water</label><select class="form-select"><option>Open well</option><option>Bore well</option><option>Underground tank</option><option>Municipal water</option></select></div>
+                    <div><label class="form-label">Municipal water bi-monthly consumption (Kilo liters)</label><input type="number" class="form-input"></div>
+                    <div><label class="form-label">Municipal water bi-monthly bill (rupees)</label><input type="number" class="form-input"></div>
+                    <div><label class="form-label">Overhead water tank capacity (Liters)</label><input type="number" class="form-input"></div>
+                    <div><label class="form-label">Capacity of the pump (HP)</label><input type="number" step="0.5" class="form-input"></div>
+                    <div><label class="form-label">Time taken to fill the tank (Hours)</label><input type="number" class="form-input"></div>
+                    <div><label class="form-label">Frequency of operating the pump per day</label><input type="number" class="form-input"></div>
+                    <div><label class="form-label">Daily power consumption (kWh)</label><input type="number" class="form-input" readonly></div>
+                    <div><label class="form-label">Annual Power Consumption (kWh)</label><input type="number" class="form-input" readonly></div>
+                    <div class="md:col-span-2"><label class="form-label">Any other remarks</label><textarea class="form-input" rows="2"></textarea></div>
+                </div>
+            </section>
+
+            <!-- Vehicle Usage Details -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Vehicle Usage Details</h3>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Vehicle</th><th>Type of fuel</th><th>Monthly usage (km)</th><th>Monthly Fuel Consumption (Liters or kWh)</th><th>Monthly fuel expenses (₹)</th><th>Remarks</th></tr></thead>
+                        <tbody>
+                            <tr><td>2 wheeler</td><td><select class="form-select"><option>Petrol</option><option>Diesel</option><option>Electric</option></select></td><td><input type="number" class="form-input"></td><td><input type="number" class="form-input"></td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>3 wheeler</td><td><select class="form-select"><option>Petrol</option><option>Diesel</option><option>Electric</option></select></td><td><input type="number" class="form-input"></td><td><input type="number" class="form-input"></td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td>Car</td><td><select class="form-select"><option>Petrol</option><option>Diesel</option><option>Electric</option></select></td><td><input type="number" class="form-input"></td><td><input type="number" class="form-input"></td><td><input type="number" class="form-input"></td><td><input type="text" class="form-input"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
 
-        <div class="riddle-box">
-            <p><strong>2. The Ancient Pulse</strong><br>
-            It carries time upon its rings,<br>
-            Roots deep in silence, yet it sings.</p>
-            <input type="text" placeholder="Answer...">
-        </div>
+        <!-- Section II: Daily Usage estimation from electricity bill -->
+        <section class="mb-8">
+            <h2 class="section-title">II. Daily Usage Estimation from Electricity Bill</h2>
+            <div class="table-container">
+                <table id="bill-table">
+                    <thead><tr><th>Bill No</th><th>Period Consumption (kWh)</th><th>Fixed charge (₹)</th><th>Meter Rent (₹)</th><th>Energy Charges (₹)</th><th>Duty (₹)</th><th>Other Charges (₹)</th><th>Total (₹)</th><th>Remarks</th></tr></thead>
+                    <tbody>
+                        <!-- Rows will be added by JS -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="font-bold bg-gray-100">
+                            <td>Total</td>
+                            <td id="total-consumption">0.00</td>
+                            <td id="total-fixed-charge">0.00</td>
+                            <td id="total-meter-rent">0.00</td>
+                            <td id="total-energy-charges">0.00</td>
+                            <td id="total-duty">0.00</td>
+                            <td id="total-other-charges">0.00</td>
+                            <td id="total-bill-amount">0.00</td>
+                            <td></td>
+                        </tr>
+                        <tr class="font-bold bg-blue-100">
+                            <td colspan="2">Average daily consumption in kWh (A)</td>
+                            <td colspan="6" id="avg-daily-consumption-A" class="text-lg">0.00</td>
+                             <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
 
-        <div class="riddle-box">
-            <p><strong>3. The Thief of Light</strong><br>
-            No door it enters, yet steals the scene,<br>
-            Where it goes, all turns unseen.</p>
-            <input type="text" placeholder="Answer...">
-        </div>
+        <!-- Section III: Daily equipment wise usage Estimation -->
+        <section class="mb-8">
+            <h2 class="section-title">III. Daily Equipment-wise Usage Estimation</h2>
+            <div class="table-container">
+                <table id="equipment-table">
+                    <thead><tr><th>Equipment</th><th>Daily Usage (Hours)</th><th>Rated/Usage Power (Watts)</th><th>Energy Consumption (Wh)</th><th>Remarks</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <!-- Rows will be added by JS -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="font-bold bg-gray-100">
+                            <td colspan="3">Total Energy Consumption in kWh (B)</td>
+                            <td id="total-equipment-consumption-B" class="text-lg">0.00</td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <button id="add-equipment-btn" class="btn btn-primary mt-4">Add Equipment</button>
+            <div id="validation-result" class="validation-message hidden"></div>
+        </section>
 
-        <div class="riddle-box">
-            <p><strong>4. The Breathless Dancer</strong><br>
-            It twists and sways but has no form,<br>
-            Born from heat, yet never warm.</p>
-            <input type="text" placeholder="Answer...">
-        </div>
+        <!-- Section IV: Identify opportunities for saving -->
+        <section class="mb-8">
+            <h2 class="section-title">IV. Identify Opportunities for Saving</h2>
+            <div class="table-container">
+                <table id="saving-table">
+                    <thead><tr><th>Suggestion</th><th>Targeted Energy Saving per day (Wh)</th><th>Investment required (₹)</th><th>Payback period (months)</th><th>Remarks</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <!-- Rows will be added by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="add-saving-opportunity-btn" class="btn btn-primary mt-4">Add Suggestion</button>
+        </section>
 
-        <div class="riddle-box">
-            <p><strong>5. The Eternal Enigma</strong><br>
-            Always ahead, never behind,<br>
-            The future's secret in its bind.</p>
-            <input type="text" placeholder="Answer...">
-        </div>
+        <!-- Section V: Energy Performance Index (EPI) -->
+        <section class="mb-8">
+            <h2 class="section-title">V. Energy Performance Index (EPI)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
+                <div>
+                    <label for="annual-consumption" class="form-label">Annual Consumption (kWh)</label>
+                    <input type="number" id="annual-consumption" class="form-input" placeholder="Calculated from bills">
+                </div>
+                <div>
+                    <label for="total-area" class="form-label">Total Area (m²)</label>
+                    <input type="number" id="total-area" class="form-input" placeholder="From Section I">
+                </div>
+                <div class="md:col-span-2">
+                    <button id="calculate-epi-btn" class="btn btn-primary w-full">Calculate EPI & Savings</button>
+                </div>
+            </div>
+            <div id="epi-results" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Results will be displayed here -->
+            </div>
+        </section>
+        
+        <!-- Reference Section -->
+        <section>
+            <h2 class="section-title">References for Energy Appraisal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Replacement Recommendations</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Existing</th><th>Replacement</th></tr></thead>
+                            <tbody>
+                                <tr><td>Up to 20 Watt CFL</td><td>9 Watt LED bulb</td></tr>
+                                <tr><td>Up to 100 Watt Incandescent</td><td>9 Watt LED bulb</td></tr>
+                                <tr><td>Conventional tube light (42W)</td><td>20 Watt LED tube</td></tr>
+                                <tr><td>15 Watt bedroom lamp</td><td>0.5 Watt LED bulb</td></tr>
+                                <tr><td>Conventional ceiling fans (65W)</td><td>BLDC ceiling fans (30W)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Approximate Power of Equipment</h3>
+                     <div class="table-container">
+                        <table>
+                            <thead><tr><th>Type</th><th>Wattage (W)</th></tr></thead>
+                            <tbody>
+                                <tr><td>Iron Box</td><td>1000</td></tr>
+                                <tr><td>Water Heater</td><td>3000</td></tr>
+                                <tr><td>Washing Machine</td><td>130</td></tr>
+                                <tr><td>1 HP Water Pump</td><td>750</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <button class="submit-btn" onclick="revealPassword()">Decrypt the Cipher</button>
-        <div class="result" id="result"></div>
     </div>
 
-	<script>
-function _0x5a06(_0x543ce4,_0x274dc7){const _0x28d3fc=_0x28d3();return _0x5a06=function(_0x5a0652,_0x2f432f){_0x5a0652=_0x5a0652-0x12f;let _0x322233=_0x28d3fc[_0x5a0652];return _0x322233;},_0x5a06(_0x543ce4,_0x274dc7);}function _0x28d3(){const _0x549813=['Please\x20answer\x20all\x20riddles!','988520uIUonu','3408CUKfXL','value','7782kiRxcz','revealPassword','41215HSEFJw','4119SKDXWg','d-q9-0-41-h7','innerText','indexOf','hs-qm-gv-6w-h7','✔️\x20Correct!\x20You’ve\x20unlocked\x20the\x20Cipher\x20with\x20','4940089uRvNdY','getElementById','7040480FUpcZc','result','488JJiYey','querySelectorAll','7399tzzgGT','split','toUpperCase','trim','length','32517IMwVAJ','2554gFInof'];_0x28d3=function(){return _0x549813;};return _0x28d3();}(function(_0x21c79f,_0x2c4ece){const _0xdc2827=_0x5a06,_0x5e4e44=_0x21c79f();while(!![]){try{const _0x33134a=parseInt(_0xdc2827(0x144))/0x1+parseInt(_0xdc2827(0x142))/0x2*(-parseInt(_0xdc2827(0x130))/0x3)+parseInt(_0xdc2827(0x13a))/0x4*(-parseInt(_0xdc2827(0x12f))/0x5)+parseInt(_0xdc2827(0x147))/0x6*(parseInt(_0xdc2827(0x13c))/0x7)+parseInt(_0xdc2827(0x145))/0x8*(parseInt(_0xdc2827(0x141))/0x9)+-parseInt(_0xdc2827(0x138))/0xa+parseInt(_0xdc2827(0x136))/0xb;if(_0x33134a===_0x2c4ece)break;else _0x5e4e44['push'](_0x5e4e44['shift']());}catch(_0x37c8d2){_0x5e4e44['push'](_0x5e4e44['shift']());}}}(_0x28d3,0xd7fbf),((()=>{const _0x505487=_0x5a06,_0x3786b7='ph0qg64mea1yl2fnxrv3szwjt5b8cuk9d7oi',_0x41df4b=_0x3786b7[_0x505487(0x140)];function _0x4d04ba(_0x1171a5,_0x2c2724){return(_0x1171a5<<_0x2c2724|_0x1171a5>>>0x8-_0x2c2724)&0xff;}function _0x54079a(_0x1215ed,_0xff0858){return(_0x1215ed>>>_0xff0858|_0x1215ed<<0x8-_0xff0858)&0xff;}function _0x52fc26(_0x16475b){const _0x34e77e=_0x505487;let _0x4fb211=0x0;for(let _0x49f5e0 of _0x16475b){_0x4fb211=_0x4fb211*_0x41df4b+_0x3786b7[_0x34e77e(0x133)](_0x49f5e0);}return _0x4fb211;}function _0xecce12(_0x344ff3,_0x261013){let _0x388793=_0x52fc26(_0x344ff3);return _0x388793=_0x388793^0x5a,_0x388793=_0x388793-_0x261013*0x7+0x100&0xff,_0x388793=_0x54079a(_0x388793,0x3),_0x388793=_0x388793^_0x261013*0xd,_0x388793;}function _0x2376b5(_0x93d80d){const _0x23ddb6=_0x505487,_0x362977=_0x93d80d[_0x23ddb6(0x13d)]('-');let _0x51d86d='';for(let _0x275db9=0x0;_0x275db9<_0x362977[_0x23ddb6(0x140)];_0x275db9++){_0x51d86d+=String['fromCharCode'](_0xecce12(_0x362977[_0x275db9],_0x275db9));}return _0x51d86d;}const _0x400b0e=_0x505487(0x134);window[_0x505487(0x148)]=function(){const _0x48c4f3=_0x505487,_0x407c10=document[_0x48c4f3(0x13b)]('input');let _0x41d30c='';for(let _0x21cb15=0x0;_0x21cb15<_0x407c10['length'];_0x21cb15++){const _0xea9fa8=_0x407c10[_0x21cb15][_0x48c4f3(0x146)][_0x48c4f3(0x13f)]();if(!_0xea9fa8){document[_0x48c4f3(0x137)]('result')['innerText']=_0x48c4f3(0x143);return;}_0x41d30c+=_0xea9fa8[0x0][_0x48c4f3(0x13e)]();}const _0x1fbd0d=_0x2376b5(_0x400b0e);_0x41d30c===_0x2376b5(_0x48c4f3(0x131))?document['getElementById'](_0x48c4f3(0x139))[_0x48c4f3(0x132)]=_0x48c4f3(0x135)+_0x1fbd0d+'.':document['getElementById'](_0x48c4f3(0x139))['innerText']='❌\x20Incorrect.\x20The\x20cipher\x20rejects\x20your\x20answer.';};})()));
-	</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- INITIALIZATION ---
+            const billTableBody = document.querySelector('#bill-table tbody');
+            for (let i = 1; i <= 6; i++) {
+                addBillRow(i);
+            }
+            
+            addEquipmentRow();
+            addSavingOpportunityRow();
 
+            // --- EVENT LISTENERS ---
+            document.getElementById('add-equipment-btn').addEventListener('click', addEquipmentRow);
+            document.getElementById('add-saving-opportunity-btn').addEventListener('click', addSavingOpportunityRow);
+            document.getElementById('calculate-epi-btn').addEventListener('click', calculateEPI);
+
+            // Link Total Area input to Section I
+            document.getElementById('buildingArea').addEventListener('input', (e) => {
+                document.getElementById('total-area').value = e.target.value;
+            });
+
+            // --- DYNAMIC TABLE ROW FUNCTIONS ---
+            function addBillRow(billNumber) {
+                const row = billTableBody.insertRow();
+                row.innerHTML = `
+                    <td>${billNumber}</td>
+                    <td><input type="number" class="form-input bill-consumption" data-col="consumption"></td>
+                    <td><input type="number" class="form-input" data-col="fixed-charge"></td>
+                    <td><input type="number" class="form-input" data-col="meter-rent"></td>
+                    <td><input type="number" class="form-input" data-col="energy-charges"></td>
+                    <td><input type="number" class="form-input" data-col="duty"></td>
+                    <td><input type="number" class="form-input" data-col="other-charges"></td>
+                    <td class="row-total">0.00</td>
+                    <td><input type="text" class="form-input"></td>
+                `;
+                row.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('input', calculateBillTotals);
+                });
+            }
+
+            function addEquipmentRow() {
+                const tableBody = document.querySelector('#equipment-table tbody');
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td><input type="text" class="form-input"></td>
+                    <td><input type="number" class="form-input equipment-usage"></td>
+                    <td><input type="number" class="form-input equipment-power"></td>
+                    <td class="equipment-consumption">0.00</td>
+                    <td><input type="text" class="form-input"></td>
+                    <td><button class="btn btn-danger remove-row-btn">Remove</button></td>
+                `;
+                row.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('input', calculateEquipmentTotals);
+                });
+                row.querySelector('.remove-row-btn').addEventListener('click', () => {
+                    row.remove();
+                    calculateEquipmentTotals();
+                });
+            }
+
+            function addSavingOpportunityRow() {
+                const tableBody = document.querySelector('#saving-table tbody');
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td><input type="text" class="form-input"></td>
+                    <td><input type="number" class="form-input saving-energy"></td>
+                    <td><input type="number" class="form-input saving-investment"></td>
+                    <td class="saving-payback">0.00</td>
+                    <td><input type="text" class="form-input"></td>
+                    <td><button class="btn btn-danger remove-row-btn">Remove</button></td>
+                `;
+                 row.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('input', calculateSavingTotals);
+                });
+                row.querySelector('.remove-row-btn').addEventListener('click', () => {
+                    row.remove();
+                });
+            }
+            
+            // --- CALCULATION FUNCTIONS ---
+            function calculateBillTotals() {
+                const cols = ['consumption', 'fixed-charge', 'meter-rent', 'energy-charges', 'duty', 'other-charges'];
+                const totals = { consumption: 0, 'fixed-charge': 0, 'meter-rent': 0, 'energy-charges': 0, duty: 0, 'other-charges': 0, 'bill-amount': 0 };
+                let billCount = 0;
+
+                billTableBody.querySelectorAll('tr').forEach(row => {
+                    let rowTotal = 0;
+                    let hasConsumption = false;
+                    row.querySelectorAll('input[type="number"]').forEach(input => {
+                        const val = parseFloat(input.value) || 0;
+                        const col = input.dataset.col;
+                        if (col) {
+                           totals[col] += val;
+                           if (col !== 'consumption') {
+                               rowTotal += val;
+                           }
+                           if (col === 'consumption' && val > 0) {
+                               hasConsumption = true;
+                           }
+                        }
+                    });
+                    if (hasConsumption) billCount++;
+                    row.querySelector('.row-total').textContent = rowTotal.toFixed(2);
+                    totals['bill-amount'] += rowTotal;
+                });
+
+                document.getElementById('total-consumption').textContent = totals.consumption.toFixed(2);
+                document.getElementById('total-fixed-charge').textContent = totals['fixed-charge'].toFixed(2);
+                document.getElementById('total-meter-rent').textContent = totals['meter-rent'].toFixed(2);
+                document.getElementById('total-energy-charges').textContent = totals['energy-charges'].toFixed(2);
+                document.getElementById('total-duty').textContent = totals.duty.toFixed(2);
+                document.getElementById('total-other-charges').textContent = totals['other-charges'].toFixed(2);
+                document.getElementById('total-bill-amount').textContent = totals['bill-amount'].toFixed(2);
+                
+                // Assuming 6 bills cover a year (bi-monthly)
+                const totalDays = billCount * 60;
+                const avgDailyConsumptionA = totalDays > 0 ? totals.consumption / totalDays : 0;
+                document.getElementById('avg-daily-consumption-A').textContent = avgDailyConsumptionA.toFixed(2);
+                document.getElementById('annual-consumption').value = totals.consumption.toFixed(2);
+
+                validateConsumption();
+            }
+
+            function calculateEquipmentTotals() {
+                let totalWh = 0;
+                document.querySelectorAll('#equipment-table tbody tr').forEach(row => {
+                    const usage = parseFloat(row.querySelector('.equipment-usage').value) || 0;
+                    const power = parseFloat(row.querySelector('.equipment-power').value) || 0;
+                    const consumptionWh = usage * power;
+                    row.querySelector('.equipment-consumption').textContent = consumptionWh.toFixed(2);
+                    totalWh += consumptionWh;
+                });
+                const totalKWh = totalWh / 1000;
+                document.getElementById('total-equipment-consumption-B').textContent = totalKWh.toFixed(2);
+                validateConsumption();
+            }
+            
+            function calculateSavingTotals() {
+                const avgDailyConsumptionA = parseFloat(document.getElementById('avg-daily-consumption-A').textContent) || 0;
+                if (avgDailyConsumptionA === 0) return;
+                
+                const annualConsumption = parseFloat(document.getElementById('annual-consumption').value) || 0;
+                const totalBill = parseFloat(document.getElementById('total-bill-amount').textContent) || 0;
+                const costPerKwh = annualConsumption > 0 ? totalBill / annualConsumption : 5; // Default to 5 if no data
+
+                document.querySelectorAll('#saving-table tbody tr').forEach(row => {
+                    const savingWh = parseFloat(row.querySelector('.saving-energy').value) || 0;
+                    const investment = parseFloat(row.querySelector('.saving-investment').value) || 0;
+                    
+                    if (savingWh > 0 && investment > 0) {
+                        const dailyCostSaving = (savingWh / 1000) * costPerKwh;
+                        const paybackDays = dailyCostSaving > 0 ? investment / dailyCostSaving : 0;
+                        const paybackMonths = paybackDays > 0 ? paybackDays / 30 : 0;
+                        row.querySelector('.saving-payback').textContent = paybackMonths.toFixed(2);
+                    } else {
+                        row.querySelector('.saving-payback').textContent = '0.00';
+                    }
+                });
+            }
+
+            function validateConsumption() {
+                const valA = parseFloat(document.getElementById('avg-daily-consumption-A').textContent) || 0;
+                const valB = parseFloat(document.getElementById('total-equipment-consumption-B').textContent) || 0;
+                const validationDiv = document.getElementById('validation-result');
+
+                if (valA === 0 || valB === 0) {
+                    validationDiv.classList.add('hidden');
+                    return;
+                }
+
+                const difference = Math.abs(valA - valB);
+                const percentageDiff = (difference / valA) * 100;
+                
+                validationDiv.classList.remove('hidden');
+                if (percentageDiff <= 10) {
+                    validationDiv.textContent = `Validation successful! The difference is ${percentageDiff.toFixed(2)}%, which is within the 10% threshold.`;
+                    validationDiv.className = 'validation-message validation-success';
+                } else {
+                    validationDiv.textContent = `Validation failed. The difference is ${percentageDiff.toFixed(2)}%, which is greater than 10%. Please verify the daily equipment usage estimation.`;
+                    validationDiv.className = 'validation-message validation-error';
+                }
+            }
+            
+            function calculateEPI() {
+                const annualConsumptionC = parseFloat(document.getElementById('annual-consumption').value) || 0;
+                const totalAreaA = parseFloat(document.getElementById('total-area').value) || 0;
+                const resultsDiv = document.getElementById('epi-results');
+                resultsDiv.innerHTML = '';
+
+                if (annualConsumptionC === 0 || totalAreaA === 0) {
+                    resultsDiv.innerHTML = `<p class="text-red-600 col-span-full">Please enter valid Annual Consumption and Total Area.</p>`;
+                    return;
+                }
+
+                // Calculate total savings
+                let totalDailySavingWh = 0;
+                document.querySelectorAll('#saving-table .saving-energy').forEach(input => {
+                    totalDailySavingWh += parseFloat(input.value) || 0;
+                });
+                const reducedAnnualConsumption = (totalDailySavingWh / 1000) * 365;
+                const projectedAnnualConsumption = annualConsumptionC - reducedAnnualConsumption;
+
+                const totalBill = parseFloat(document.getElementById('total-bill-amount').textContent) || 0;
+                const costPerKwh = annualConsumptionC > 0 ? totalBill / annualConsumptionC : 5; // Use average rate or default
+
+                const annualBillReduction = reducedAnnualConsumption * costPerKwh;
+                const co2Reduction = reducedAnnualConsumption * 0.79; // 0.79 kg CO2 per kWh
+
+                const presentEPI = annualConsumptionC / totalAreaA;
+                const projectedEPI = projectedAnnualConsumption / totalAreaA;
+
+                resultsDiv.innerHTML = `
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800">Present EPI</h4>
+                        <p class="text-2xl font-bold text-blue-900">${presentEPI.toFixed(2)} kWh/m²/year</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800">Projected EPI</h4>
+                        <p class="text-2xl font-bold text-green-900">${projectedEPI.toFixed(2)} kWh/m²/year</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800">Annual Consumption Reduction</h4>
+                        <p class="text-2xl font-bold text-yellow-900">${reducedAnnualConsumption.toFixed(2)} kWh</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-indigo-800">Annual Bill Reduction</h4>
+                        <p class="text-2xl font-bold text-indigo-900">₹ ${annualBillReduction.toFixed(2)}</p>
+                    </div>
+                     <div class="bg-red-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-red-800">Annual CO₂ Emission Reduction</h4>
+                        <p class="text-2xl font-bold text-red-900">${co2Reduction.toFixed(2)} kgCO₂</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
 </body>
 </html>
